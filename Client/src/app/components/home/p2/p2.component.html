@@ -1,0 +1,205 @@
+<ngx-spinner type="ball-scale-multiple">
+</ngx-spinner>
+
+<div class="container-fluid"> <!-- breadcrumb -->
+    <div class="breadcrumb-header justify-content-between">
+      <div class="my-auto">
+        <div class="d-flex"><h4 class="content-title mb-0 my-auto">Saisies</h4><span
+          class="text-muted mt-1 tx-13 ml-2 mb-0">/ Saisie de données</span></div>
+      </div>
+    </div>
+
+
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-12">
+    <div class="card card-default shadow rounded">
+    <div class="card-header text-center header" >
+    </div>
+    <div class="card-body">
+    <div class="row">
+      <div class="col-12">
+        <div class="text-center">
+          <h5 class="text-success">PARAMÉTRAGE</h5>
+        </div>
+      </div>
+    <div class="col-12">
+    <!-- <button class="btn btn-default">IH Tabs</button> -->
+    <ul class="tabs-container">
+      <li  (click)="onTabClick('Personal Details')" [class.active]="activeTab == 'Personal Details'" class="tab-link">DIRECTION</li>
+      <li (click)="onTabClick('Account Details')" [class.active]="activeTab == 'Account Details'"  class="tab-link">SOUS-DIRECTION</li>
+      <li (click)="onTabClick('Other Details')" [class.active]="activeTab == 'Other Details'"  class="tab-link">SERVICE</li>
+    </ul>
+    <div *ngIf="activeTab == 'Personal Details'" class="w-100">
+        <div class="input-group flex-nowrap">    
+              <form class="row g-3" [formGroup]="empForm" >
+                <div class="col-2">
+                  <label for="inputCode" class="visually-show">Code direction</label>
+                  <input type="number" class="form-control" id="inputCode" placeholder="Entrez le code de la direction" formControlName="codedirection">
+                </div>
+                <div class="col-2">
+                  <label for="inputL" class="visually-show">Libellé court</label>
+                  <input type="text" class="form-control" id="inputL" placeholder="Entrez le libellé court de la direction" formControlName="libelecdirection">
+                </div>
+                <div class="col-4">
+                  <label for="input" class="visually-show">Libellé long</label>
+                  <input type="text" class="form-control" id="inputPassword" placeholder="Entrez le libellé long de la direction" formControlName="libeleldirection" >
+                </div>
+                <div class="col-2 mt-5">
+                  <button [disabled]="empForm.invalid" (click)="onDirectionSubmit()"   class="btn btn-success">Enregistrer</button>
+                </div>
+  
+                <div class="col-3 ms-auto" style="margin-left: 900px; margin-bottom: 15px;">
+                  <label for="inputL" class="visually-show">Rechercher</label>
+                  <input type="text" class="form-control" id="inputL">
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered mg-b-0 text-md-nowrap">
+                      <thead>
+                      <tr>
+                        <th style="width: 35px;">ID</th>
+                        <th>Code direction</th>
+                        <th>Libellé court</th>
+                        <th>Libellé long</th>
+                        <th style="width: 160px;">Action</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let item of data">
+                        <td scope="row">{{item.id}}</td>
+                        <td>{{item.code}}</td>
+                        <td>{{item.libele_court}}</td>
+                        <td>{{item.libele_long}}</td>
+                        <td>
+                          <i (click)="openModalDirection(item.id)" style="color: #ff8000;" class="side-menu__icon typcn typcn-edit" tooltip="Modifier"></i>
+                          <i (click)="deleteDirection(item.id)" style="color: red;" class="side-menu__icon typcn typcn-trash" tooltip="Supprimer"></i>
+                          <i (click)="openModalFonction()"class="side-menu__icon typcn typcn-user-add" tooltip="Directeur"></i>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+              </form>
+        </div>
+    </div>
+    <div *ngIf="activeTab == 'Account Details'" class="w-100">
+        <div class="input-group flex-nowrap">
+          <form class="row g-3" [formGroup]="empFormD">
+            <div class="col-3">
+              <label for="inputCode" class="visually-show">Direction</label>
+              <ng-select [items]="data" bindLabel="libele_long" bindValue="id"  formControlName="codedirection"></ng-select>
+            </div>
+            <div class="col-2">
+              <label for="inputL" class="visually-show ">sous-direction</label>
+              <input type="number" class="form-control " id="inputL"  placeholder="Entez le code de la sous-direction" formControlName="codesousdirection" >
+            </div>
+            <div class="col-2">
+              <label for="input" class="visually-show">Libellé court</label>
+              <input type="text" class="form-control" id="inputPassword" placeholder="Entrez le libellé court" formControlName="libelecsousdirection" >
+            </div>
+            <div class="col-3">
+              <label for="input" class="visually-show">Libellé long</label>
+              <input type="text" class="form-control" id="inputPassword" placeholder="Entrez le libellé long" formControlName="libelelsousdirection" >
+            </div>
+            <div class="col-2 mt-5">
+              <button [disabled]="empFormD.invalid" (click)="onSousDirectionSubmit()"  class="btn btn-success ">Enregistrer</button>
+            </div>
+            <div class="col-3 ms-auto" style="margin-left: 900px; margin-bottom: 15px;">
+              <label for="inputL" class="visually-show">Rechercher</label>
+              <input type="text" class="form-control" id="inputL">
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered mg-b-0 text-md-nowrap">
+                    <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Code direction</th>
+                      <th>Code sous-direction</th>
+                      <th>Libellé court</th>
+                      <th>Libellé long</th>
+                      <th style="width: 150px;">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let item of data1">
+                      <td scope="row">{{item.id}}</td>
+                      <td>{{item.direction.code}}</td>
+                      <td>{{item.code_sous_direction}}</td>
+                      <td>{{item.libelle_court}}</td>
+                      <td>{{item.libelle_long}}</td>
+                      <td>
+                        <i (click)="openModalSousDirection(item.id)" style="color: #ff8000;" class="side-menu__icon typcn typcn-edit" tooltip="Modifier"></i>
+                        <i (click)="deleteSousDirection(item.id)" style="color: red;" class="side-menu__icon typcn typcn-trash" tooltip="Supprimer"></i>
+                        <i (click)="openModalFonction()" class="side-menu__icon typcn typcn-user-add" tooltip="Sous-directeur"></i>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+              </div>
+          </form>
+        </div>
+    </div>
+    <div *ngIf="activeTab == 'Other Details'" class="w-100">
+        <div class="input-group flex-nowrap">
+          <form class="row g-3" [formGroup]="empFormS">
+            <div class="col-3">
+              <label for="inputCode" class="visually-show">Sous-direction</label>
+              <ng-select [items]="data1" bindLabel="libelle_long" bindValue="id" formControlName="codesousdirection"></ng-select>
+            </div>
+            <div class="col-2">
+              <label for="inputL" class="visually-show">Code service</label>
+              <input type="number" class="form-control" id="inputL" placeholder="Entrez le code de la direction" formControlName="codeservice">
+            </div>
+            <div class="col-2">
+              <label for="input" class="visually-show">Libellé court</label>
+              <input type="text" class="form-control" id="inputPassword" placeholder="Entrez le libellé court" formControlName="libelecservice" >
+            </div>
+            <div class="col-3">
+              <label for="input" class="visually-show">Libellé long</label>
+              <input type="text" class="form-control" id="inputPassword" placeholder="Entrez le libellé long" formControlName="libelelservice" >
+            </div>
+            <div class="col-2 ">
+              <button [disabled]="empFormS.invalid"  (click)="onServiceSubmit()" class="btn btn-success mt-4">Enregistrer</button>
+            </div>
+            <div class="col-3 ms-auto" style="margin-left: 900px; margin-bottom: 15px;">
+              <label for="inputL" class="visually-show">Rechercher</label>
+              <input type="text" class="form-control" id="inputL">
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered mg-b-0 text-md-nowrap">
+                    <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Code sous-direction</th>
+                      <th>Code service</th>
+                      <th>Libellé court</th>
+                      <th>Libellé long</th>
+                      <th style="width: 150px;">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let item of data2">
+                      <td scope="row">{{item.id}}</td>
+                      <td>{{item.sous_direction.code_sous_direction}}</td>
+                      <td>{{item.code_service}}</td>
+                      <td>{{item.libelle_court}}</td>
+                      <td>{{item.libelle_long}}</td>
+                      <td>
+                        <i (click)="openModalService(item.id)" style="color: #ff8000;" class="side-menu__icon typcn typcn-edit" tooltip="Modifier"></i>
+                        <i  (click)="deleteService(item.id)" style="color: red;" class="side-menu__icon typcn typcn-trash" tooltip="Supprimer"></i>
+                        <i  (click)="openModalFonction()" class="side-menu__icon typcn typcn-user-add" tooltip="Chef de service"></i>
+                      </td>
+                    </tr>       
+                    </tbody>
+                  </table>
+              </div>
+          </form>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>

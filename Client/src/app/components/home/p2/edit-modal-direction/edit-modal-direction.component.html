@@ -1,0 +1,24 @@
+<div class="modal-header" style="width: 498px; background-color: #ff8000;" >
+  <h4 class="modal-title">Modification</h4>
+</div> 
+<div class="input-group flex-nowrap">   
+    <form class="row g-3" [formGroup]="editDirectionForm" >
+      <div class="row" style="margin-top: 17px; margin-left: 10px; margin-bottom: 10px;">
+        <div class="col-2">
+          <label for="inputCode" class="visually-show">direction</label>
+          <input type="number" class="form-control" id="inputCode" placeholder="Entrer le code de la direction" formControlName="codedirection">
+        </div>
+        <div class="col-2">
+          <label for="inputL" class="visually-show">Libellé</label>
+          <input type="text" class="form-control" id="inputL" placeholder="Entrer le libellé court de la direction" formControlName="libelecdirection">
+        </div>
+        <div class="col-5">
+          <label for="input" class="visually-show">Libellé long</label>
+          <input type="text" class="form-control" id="inputPassword" placeholder="Entrer le libellé long de la direction" formControlName="libeleldirection" >
+        </div>
+        <div class="col-2 mt-2">
+          <button (click)="updateDirection()" type="submit" class="btn btn-success mt-3">Enregistrer</button>
+        </div>
+      </div>
+    </form>
+</div>

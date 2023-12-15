@@ -1,0 +1,27 @@
+.group{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px
+}
+input ,label{
+    border-radius: 5px;
+    margin-left: 5px;
+ 
+}
+
+.input-group{
+    display: flex;
+}
+div{
+    margin: 5px;
+    margin-top: 10px;
+}
+
+.btn{
+    display: flex;
+    justify-content: space-between;
+}
+button{
+  margin-right: 14px;
+  margin-top: 10px;
+}

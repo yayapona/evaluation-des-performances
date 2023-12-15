@@ -1,0 +1,35 @@
+form{
+    width: 2000px;
+}
+.div {
+    display: flex;
+    width: 490px;
+    margin-right: 15px;
+}
+.mb-3{
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+.button {
+  width: 490px;
+  margin: 15px 5px 5px 190px;
+  
+}
+
+button{
+    margin: 10px;
+ 
+   
+}
+
+input {
+    border-radius: 5px;
+}
+
+select{
+    width:200px
+}
+.rang {
+  width: 60px;
+}

@@ -1,0 +1,41 @@
+
+
+<div class="input-group flex-nowrap">    
+    <form class="row g-3" [formGroup]="empForm" >
+      <div class="col-2">
+        <label for="inputCode" class="visually-show">Type fonction</label>
+        <input type="text" class="form-control" id="inputCode" placeholder="Entrer la fonction de l'agent" formControlName="typefonction">
+      </div>
+      <div class="col-2">
+        <label for="inputL" class="visually-show">Matricule</label>
+        <input type="text" class="form-control" id="inputL" placeholder="Entrer le matricule de l'agent" formControlName="matricule">
+      </div>
+      <div class="col-2">
+        <label for="inputL" class="visually-show">Date début</label>
+        <input type="date" class="form-control" id="inputL" placeholder="Entrer le matricule de l'agent" formControlName="datedebut">
+      </div>
+      <div class="col-1">
+        <label for="input" class="visually-show">Rang</label>
+        <select class="form-select" aria-label="Default select example" formControlName="rang">
+  
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+      </div>
+      <div class="col-1">
+        <label for="input" class="visually-show">Statut</label>
+        <select class="form-select" aria-label="Default select example" formControlName="status">
+            <option selected >Selection le statut</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+    </div>
+      <div class="col-2  btn">
+        <button [disabled]="empForm.invalid" (click)="onFonctionSubmit()" type="submit" class="btn btn-primary mt-3">Enrégistrer</button>
+        <button  (click)="editModal()" type="submit" class="btn btn-info mt-3">Modifer</button>
+      </div>
+    
+    </form>
+</div>

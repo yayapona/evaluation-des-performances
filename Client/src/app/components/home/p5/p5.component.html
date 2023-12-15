@@ -1,0 +1,95 @@
+<div style="padding: 5px;">
+    
+    <div  class="header">
+        <div class="title-contrat">
+               contrat d'objectifs
+        </div>
+        <div class="element-contrat">
+            <table>
+                <thead class="thead">
+                    <th>EVALUATEUR</th>
+                    <th>EVALUE</th>
+                </thead>
+                <tbody>
+                    <td class="td">
+                        <div>Nom et Prénom : <span> {{data4.nom_evaluateur}} {{data4.prenom_evaluateur}}</span></div><br>
+                        <div>Fonction/Poste : <span>{{data4.evaluateur_fonction}}</span></div>
+                    </td>
+                    <td>
+                        <div class="mb-4 ">Nom et Prénom : <span>{{data4.nom_evalue}} {{data4.prenom_evalue}}</span></div>
+                        <div>Fonction/Poste : <span>{{data4.agent_fonction}}</span></div>
+                    </td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+  
+    <div class="paragraph">
+        <p >
+            Dans le cadre de l'évaluation des performances pour l'année 2022, Madame/Monsieur <span> {{data4.nom_evalue}} {{data4.prenom_evalue}}</span>, <span>{{data4.agent_fonction}}</span>,a négocié avec
+            Madame/Monsieur <span>{{data4.nom_evaluateur}} {{data4.prenom_evaluateur}}</span> , <span>{{data4.evaluateur_fonction}}</span> et obtenu les objectifs suivants :
+        </p>
+    </div>
+    <div class="sticky" >
+      <h6 style="font-size: 20px;" class="{{noteColor}}">Note: {{noteTotal}} / 5</h6>
+    </div>
+    <table class="table-style">
+        <thead>
+            <tr>
+                <th style="width: 20%;">Domaines</th>
+                <th style="width: 80%;">
+                    <div style="width: 28%; display: inline-block; text-align: center;">Critères</div>
+                    <div style="width: 28%; display: inline-block; text-align: center;">Objectifs</div>
+                    <div style="width: 24%; display: inline-block; text-align: center;">Indicateurs</div>
+                    <div style="width: 10%; display: inline-block; text-align: center; padding-right: 87px;">Pond.</div>
+                    <div style="width: 10%; display: inline-block; text-align: center;">Preuve</div>
+                </th>
+            </tr>
+        </thead>
+      
+        <tbody>
+            <tr *ngFor="let item of domaineList">
+                <td> {{ item.libelle_domaine }}</td>
+                <td style=" padding: 0">
+                    <table style="margin: 0; width: 100%;">
+                        <tr *ngFor="let item1 of item.critereWrappers" >
+                              <td style="width: 28%;"> {{ item1.libelleCritere}}</td>
+                              <td style="padding: 0">
+                                <table style="margin: 0; width: 100%;">
+                                   <tr *ngFor="let item2 of item1.objectifWrappers">
+                                          <td style="width: 28%;">{{item2.libelle_objectif}}</td>
+                                          <td style="padding: 0;width: 28%;">
+                                            <table style="margin:0; padding:0; width: 100%;">
+                                                <tr>
+                                                    <td style="color: orangered;font-weight: 600;" colspan="2">{{item2.libelle_indicateur}}</td>
+                                                </tr>
+                                                <tr *ngFor="let item3 of item2.occurrenceWrappers; let idx = index">
+
+                                                    <td style="width: 80%;">{{ item3.libelle_ocurrence}}</td>
+                                                    <td style="width: 20%; color: blue;" class="{{check(idx, item2.idObjectif)? 'class1':''}}" (click)="toggleClass(idx, item2, item3.note, item2.note_alloue, item3.idOccurence)">{{item3.note}}</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td style="width: 10%;">{{item2.note_alloue}}</td>
+                                        <td style="width: 10%;">
+                                            <ul>
+                                                <li *ngFor="let itemP of item2.preuveRealisationWrappers">
+                                                    {{itemP.libelle_preuve}}
+                                                </li>
+                                            </ul>
+                                            
+                                        </td>
+                                   </tr>
+                                </table>
+                              </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+<div  style="float: right; margin-bottom: 20px; margin-right: 20px;">
+    <button *ngxPermissionsOnly="['chef de service','sous-directeur','directeur']" (click)="updateContrat()" class="btn btn-success">Valider</button>
+</div>

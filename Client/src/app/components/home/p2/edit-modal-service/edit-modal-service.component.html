@@ -1,0 +1,23 @@
+<div class="modal-header" style="width: 498px; background-color: #ff8000;" >
+  <h4 class="modal-title">Modification</h4>
+</div> 
+<div class="input-group flex-nowrap">
+    <form class="row g-3 mb-3 ms-3" [formGroup]="editServiceForm" >
+      <div class="col-2">
+        <label for="inputL" class="visually-show">Code </label>
+        <input type="number" class="form-control" id="inputL" placeholder="Entrer le code de la direction" formControlName="codeservice">
+      </div>
+      <div class="col-2">
+        <label for="input" class="visually-show">Libellé </label>
+        <input type="text" class="form-control" id="inputPassword" placeholder="Entrer le libellé court" formControlName="libelecservice" >
+      </div>
+      <div class="col-3">
+        <label for="input" class="visually-show">Libellé long</label>
+        <input type="text" class="form-control" id="inputPassword" placeholder="Entrer le libellé long" formControlName="libelelservice" >
+      </div>
+      <div class="col-2 ">
+        <button (click)="updateSousDirection()" type="submit" class="btn btn-success mt-4">Enregistrer</button>
+      </div>
+     
+    </form>
+  </div>

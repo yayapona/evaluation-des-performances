@@ -1,0 +1,47 @@
+<div class="modal-header" style="auto; background-color: #ff8000;" >
+  <h4 class="modal-title">{{itemSelected.libelleCritere}}</h4>
+</div>
+<form [formGroup]="empForm">
+  <div class="ms-3 mt-3 me-3">
+    <div class="row g-3 align-items-center">
+    
+      <div class="col-3">
+        <label for="inputPassword6" class="col-form-label">Libellé objectif</label>
+        <input type="text" id="inputPassword6" class="form-control" aria-labelledby="passwordHelpInline" formControlName="libelle_objectifs">
+      </div>
+      <div class="col-2">
+        <label for="inputPassword6" class="col-form-label">Note Allouée</label>
+        <input type="number" id="inputPassword6" class="form-control" aria-labelledby="passwordHelpInline" formControlName="note_alloue">
+      </div>
+      <div class="col-3">
+        <label for="inputPassword6" class="col-form-label">Indicateur</label>
+        <ng-select [items]="data1" bindLabel="libelle_indicateur" bindValue="id"  formControlName="indicateur_id"></ng-select>
+      </div>
+      <div class="col-auto">
+        <button (click)="onSubmitObjectif()" type="button" class="btn btn-success mt-4">Enrégistrer</button>
+      </div>
+     
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered mg-b-0 text-md-nowrap">
+        <thead>
+        <tr>
+          <th style="width: 45px;">N°</th>
+          <th>objectif</th>
+          <th style="width: 120px;">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let data of data, let idx = index">
+          <td scope="row">{{idx+1}}</td>
+          <td>{{data.libelle_objectifs}}</td>
+          <td>
+            <i style="color: #ff8000; font-size: 25px;" (click)="openModalEdit(data.id)" class="side-menu__icon typcn typcn-edit"></i>
+            <i style="color: red; font-size: 25px;" (click)="deleteObjectif(data.id)" class="side-menu__icon typcn typcn-delete"></i>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+  </div>
+  </div>
+</form>

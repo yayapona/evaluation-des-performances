@@ -1,0 +1,67 @@
+<div class="modal-header" style="width: 1167px; background-color: #ff8000;" >
+  <h4 class="modal-title">Création d'un compte agent</h4>
+</div>
+
+<ngx-spinner type="ball-scale-multiple">
+</ngx-spinner>
+
+<div style="margin-left: 35px;">
+  <form [formGroup]="empForm">
+   
+      <div class="row">
+          <div class="mb-3 col-3">
+              <label for="exampleInputEmail1" class="form-label">Nom</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrez le nom de l'agent" formControlName="nom" autofocus>
+              
+            </div>
+            <div class="mb-3 col-3">
+              <label for="exampleInputPassword1" class="form-label">Prénoms</label>
+              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Entrez le prénom de l'agent" formControlName="prenom">
+            </div>
+      </div>
+  
+      <div class="row">
+      <div class="mb-3 col-1">
+          <label for="exampleInputPassword1" class="form-label">Matricule</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Entrez le matricule de l'agent " formControlName="matricule">
+        </div>
+      <div class="mb-3 col-2">
+          <label for="exampleInputPassword1" class="form-label">Fonction</label>
+          <ng-select formControlName="fonction">
+            <ng-option value="agent">Agent</ng-option>
+            <ng-option value="chef de service">Chef de service</ng-option>
+            <ng-option value="sous-directeur" >Sous-directeur</ng-option>
+            <ng-option value="directeur">Directeur</ng-option>
+          </ng-select>
+        </div>
+        <div class="mb-3 col-2">
+          <label for="exampleInputPassword1" class="form-label">email</label>
+          <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Entrez l'email de l'agent" formControlName="email">
+        </div>
+      </div>
+  
+      <div class="row">
+      <div class="mb-3 col-4">
+          <label for="exampleInputPassword1" class="form-label">Direction</label>
+           <ng-select [items]="data" bindLabel="libele_long" bindValue="id" (change)="onChange($event)" formControlName="direction_id"></ng-select>
+        </div>
+      </div>
+  
+      <div class="row">
+      <div class="mb-3 col-3">
+          <label for="exampleInputPassword1" class="form-label">Sous-direction</label>
+          <ng-select [items]="listSDC" bindLabel="libelle_long" bindValue="id" (change)="onChangeS($event)"formControlName="sousdirection_id"></ng-select>
+      </div>
+      <div class="mb-3 col-3">
+          <label for="exampleInputPassword1" class="form-label">Service</label >
+            <ng-select [items]="listSDS" bindLabel="libelle_long" bindValue="id"  formControlName="service_id"></ng-select>
+      </div>
+      </div>
+     
+      
+      <div class="button" style="margin-left: 790px">
+        <button (click)="closeModal()" type="submit" class="btn btn-danger" ><i class="side-menu__icon typcn typcn-cancel"></i>Annuler</button>
+        <button  (click)=" onFormSubmit()" type="submit" class="btn btn-success"><i class="side-menu__icon typcn typcn-tick"></i> Enrégistrer</button>
+      </div>
+  </form>
+</div>

@@ -1,0 +1,181 @@
+<div class="container-fluid"> <!-- breadcrumb -->
+  <div class="breadcrumb-header justify-content-between">
+    <div class="my-auto">
+      <div class="d-flex"><h4 class="content-title mb-0 my-auto">Saisies</h4><span
+        class="text-muted mt-1 tx-13 ml-2 mb-0">/ Saisie de données</span></div>
+    </div>
+</div>
+
+<ngx-spinner type="ball-scale-multiple">
+</ngx-spinner>
+
+
+<div class="container-fluid mt-4">
+    <div class="row">
+    <div class="col-12">
+    <div class="card card-default shadow rounded">
+    <div class="card-header text-center header" >
+    </div>
+    <div class="card-body">
+    <div class="row">
+      <div class="col-12">
+        <div class="text-center">
+          <h5 class="text-success">PARAMÉTRAGE</h5>
+        </div>
+      </div>
+    <div class="col-12">
+    <!-- <button class="btn btn-default">IH Tabs</button> -->
+    <ul class="tabs-container">
+      <li  (click)="onTabClick('Personal Details')" [class.active]="activeTab == 'Personal Details'" class="tab-link">ANNÉÉS</li>
+      <li (click)="onTabClick('Account Details')" [class.active]="activeTab == 'Account Details'"  class="tab-link">DOMAINES</li>
+      <li (click)="onTabClick('Other Details')" [class.active]="activeTab == 'Other Details'"  class="tab-link">CRITÈRES</li>
+    </ul>
+    <div *ngIf="activeTab == 'Personal Details'" class="w-100">
+        <div class="input-group flex-nowrap">    
+              <form class="row g-3" [formGroup]="empForm" >
+                <div class="col-2">
+                  <label for="inputCode" class="visually-show">Année</label>
+                  <input type="text" class="form-control" id="inputCode" placeholder="Entrez l'année " formControlName="annee">
+                </div>
+                <div class="col-5">
+                  <label for="inputL" class="visually-show">Thème</label>
+                  <input type="text" class="form-control" id="inputL" placeholder="Entrez le thème de l'année" formControlName="theme">
+                </div>
+                <div class="col-1">
+                  <label for="inputL" class="visually-show">Statut</label>
+                  <ng-select formControlName="statut">
+                    <ng-option [value]="0">0</ng-option>
+                    <ng-option [value]="1">1</ng-option>
+                  </ng-select>
+                </div>
+                <div class="col-2">
+                  <button style="margin-top: 5px;" [disabled]="empForm.invalid" (click)="onAnneeSubmit()" type="submit" class="btn btn-success mt-4 annee">Enrégistrer</button>
+                </div>
+                <div class="table-responsive">
+                  <table  class="table table-striped table-bordered mg-b-0 text-md-nowrap" style="margin-top: 15px; width: 1165px">
+                    <thead>
+                    <tr>
+                      <th style="width: 35px;">N°</th>
+                      <th style="width: 100px;">Année</th>
+                      <th style="width: 100px;">Statut</th>
+                      <th>Thème</th>
+                      <th style="width: 150px;">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let item of data, let idx = index">
+                      <td scope="row">{{idx +1}}</td>
+                      <td>{{item.annee}}</td>
+                      <td>{{item.statut}}</td>
+                      <td>{{item.theme}}</td>
+                      <td>
+                        <i (click)="openModalAnnee(item.id)" style="color: #ff8000;" class="side-menu__icon typcn typcn-edit" tooltip="Modifier"></i>
+                        <i (click)="deleteAnnee(item.id)"  style="color: red;" class="side-menu__icon typcn typcn-trash"  tooltip="Supprimer"></i>
+                      </td>
+                     
+                    </tr> 
+                    </tbody>
+                  </table>
+                </div>
+              </form>
+        </div>
+    </div>
+    <div *ngIf="activeTab == 'Account Details'" class="w-100">
+        <div class="input-group flex-nowrap">
+          <form class="row g-3" [formGroup]="empFormD" >
+            <div class="col-2" >
+              <label for="inputCode" class="visually-show">Année</label>
+              <ng-select [items]="data" bindLabel="annee" bindValue="id" formControlName="annee_id"></ng-select>
+            </div>
+            <div class="col-4">
+              <label for="inputL" class="visually-show">Domaine</label>
+              <input type="text" class="form-control" id="inputL" placeholder="Entrez le domaine" formControlName="domaine">
+            </div>
+            
+            <div class="col-2 ">
+              <button [disabled]="empFormD.invalid" (click)="onDomaineSubmit()" type="submit" class="btn btn-success mt-4 domaine">Enregistrer</button>
+            </div>
+            <div class="table-responsive">
+              <table style="margin-top: 15px; width: 1170px;" class="table table-striped table-bordered mg-b-0 text-md-nowrap">
+                <thead>
+                <tr>
+                  <th>N°</th>
+                  <th>Année</th>
+                  <th>Domaine</th>
+                  <th style="width: 150px;">Action</th>
+                 
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of data1, let idx = index">
+                  <td scope="row">{{idx +1}}</td>
+                  <td>{{item.annee?.annee}}</td>
+                  <td>{{item.libelle_domaine}}</td>
+                  <td>
+                    <i (click)="openModalDomaine(item.id)" style="color: #ff8000;" class="side-menu__icon typcn typcn-edit" tooltip="Modifier"></i>
+                    <i (click)="deleteDomaine(item.id)"  style="color: red;" class="side-menu__icon typcn typcn-trash"  tooltip="Supprimer"></i>
+                  </td>
+                </tr>
+               
+                </tbody>
+              </table>
+            </div>
+
+          </form>
+        </div>
+    </div>
+    <div *ngIf="activeTab == 'Other Details'" class="w-100">
+        <div class="input-group flex-nowrap">
+          <form class="row g-3" [formGroup]="empFormC">
+            <div class="col-3">
+              <label for="inputCode" class="visually-show">Domaines</label>
+              <ng-select [items]="data1" bindLabel="libelle_domaine" bindValue="id" formControlName="domaine_id"></ng-select>
+            </div>
+            <div class="col-3">
+              <label for="inputCode" class="visually-show">Direction</label>
+              <ng-select [items]="data3" bindLabel="libele_long" bindValue="id" formControlName="direction_id"></ng-select>
+            </div>
+            <div class="col-4">
+              <label for="inputL" class="visually-show">Critère</label>
+              <input type="text" class="form-control" id="inputL" placeholder="Entrez le critère" formControlName="critere">
+            </div>
+            <div class="col-2 ">
+              <button [disabled]="empFormC.invalid" (click)="onCritereSubmit()"  class="btn btn-success mt-4 critere">Enregistrer</button>
+            </div>
+            <div class="table-responsive">
+              <table style="margin-top:15px; width: 1170px;" class="table table-striped table-bordered mg-b-0 text-md-nowrap">
+                <thead>
+                <tr>
+                  <th>N°</th>
+                  <th>Année</th>
+                  <th>Direction</th>
+                  <th>Domaine</th>
+                  <th>Critère</th>
+                  <th style="width: 150px;">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of data2; let idx = index">
+                  <td scope="row">{{idx +1 }}</td>
+                  <td>{{item.domaine.annee.annee}}</td>
+                  <td>{{item.direction.libele_long}}</td>
+                  <td>{{item.domaine.libelle_domaine}}</td>
+                  <td>{{item.libelle_critere}}</td>
+                  <td>
+                    <i (click)="openModalCritere(item.id)" style="color: #ff8000;" class="side-menu__icon typcn typcn-edit"  tooltip="Modifier"></i>
+                    <i (click)="deleteCritere(item.id)"  style="color: red;" class="side-menu__icon typcn typcn-trash"  tooltip="Supprimer."></i>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </form>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>

@@ -1,0 +1,23 @@
+<div class="modal-header" style="width: 498px; background-color: #ff8000;" >
+  <h4 class="modal-title">Modification</h4>
+</div> 
+<div class="input-group flex-nowrap">
+    <form class="row g-3 mb-3" [formGroup]="editSousDirectionForm ">
+
+      <div class="col-2">
+        <label for="inputL" class="visually-show ">sousDirection</label>
+        <input type="number" class="form-control " id="inputL" placeholder="Entrer" placeholder="Enter la sous-direction" formControlName="codesousdirection" >
+      </div>
+      <div class="col-2">
+        <label for="input" class="visually-show">Libellé </label>
+        <input type="text" class="form-control" id="inputPassword" placeholder="Enter le libellé court" formControlName="libelecsousdirection" >
+      </div>
+      <div class="col-3">
+        <label for="input" class="visually-show">Libellé long</label>
+        <input type="text" class="form-control" id="inputPassword" placeholder="Entrer le libellé long" formControlName="libelelsousdirection" >
+      </div>
+      <div class="col-2 mt-4">
+        <button (click)="updateSousDirection()" type="submit" class="btn btn-success mt-2">Enregistrer</button>
+      </div>
+    </form>
+  </div>

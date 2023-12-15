@@ -1,0 +1,31 @@
+<ngx-spinner type="ball-scale-multiple">
+</ngx-spinner>
+<div class="my-auto page page-h" >
+    <div class="main-signin-wrapper" style="background-image: url(assets/img/bg_1.png) !important; background-size: cover; background-position: center center;">
+      <div class="main-card-signin d-md-flex wd-100p">
+        <div class="p-5 wd-md-50p">
+          <div style="text-align: center">
+            <img src="assets/img/logoTresor.png" width="160px">
+          </div><br>
+          <div class="main-signin-header">
+            <form [formGroup]="loginForm">
+              <div class="form-group">
+                <label>Email</label>
+                <input class="form-control" placeholder="Entrer votre email" type="text" formControlName="email">
+              </div>
+              <div class="form-group">
+                <label>Mot de passe</label>
+                <input class="form-control" placeholder="Entrer votre mot de passe" type="password" formControlName="matricule">
+              </div>
+              <button class="btn btn-main-vert btn-block" (click)="onLogin()">Connexion</button>
+            </form>
+          </div>
+          <div class="main-signin-footer mt-3 mg-t-5">
+            <p><a routerLink="/auth/forgot-pwd" style="color: rgb(226 126 20) !important;">Mot de passe oublié?</a></p>
+            <p>Vous n'avez pas de compte? <a href="javascript:void(0)">Contacter l'administrateur <i class="fa fa-arrow-circle-right"></i></a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

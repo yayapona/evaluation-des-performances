@@ -1,0 +1,27 @@
+<div class="modal-header" style="width: 498px; background-color: #ff8000;" >
+  <h4 class="modal-title">Création d'un compte agent</h4>
+</div>
+
+<ngx-spinner type="ball-scale-multiple">
+</ngx-spinner>
+
+
+<div class="input-group flex-nowrap">    
+    <form class="row g-3" [formGroup]="editAnneeForm" >
+      <div class="col-2">
+        <label for="inputCode" class="visually-show">Année</label>
+        <input type="text" class="form-control" id="inputCode" placeholder="Entrer l'année " formControlName="annee">
+      </div>
+      <div class="col-5">
+        <label for="inputL" class="visually-show">Thème</label>
+        <input type="text" class="form-control" id="inputL" placeholder="Entrer le thème de l'année" formControlName="theme">
+      </div>
+      <div class="col-2">
+        <label for="inputL" class="visually-show">Statut</label>
+        <input type="text" class="form-control" id="inputL" placeholder="Entrer le thème de l'année" formControlName="statut">
+      </div>
+      <div class="col-2">
+        <button (click)="updateAnne()" type="submit" class="btn btn-primary mt-4 annee">Enrégistrer</button>
+      </div>
+    </form>
+</div>

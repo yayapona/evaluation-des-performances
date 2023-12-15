@@ -1,0 +1,585 @@
+<!-- main-sidebar opened -->
+<div class="app-sidebar__overlay active" data-toggle="sidebar"></div>
+<aside class="app-sidebar">
+  <div class="main-sidebar-header active">
+
+    <a class="desktop-logo logo-light active" href="javascript:void(0)">
+      <div class="head">
+        <img src="assets/img/logoTresor.png" class="main-logo" width="45px" alt="logo">
+        <span style="color: rgb(240 125 0);">{{data.fonction}}</span>
+      </div>
+    </a>
+
+
+    <a class="logo-icon mobile-logo icon-light active" href="javascript:void(0)">
+      <img src="./assets/img/logoTresor.png" class="logo-icon" alt="logo">
+    </a>
+  </div>
+
+  <div class="sidebar-scroll mCustomScrollbar _mCS_1 mCS-autoHide" style="position: relative; overflow: visible;">
+    <div id="mCSB_1" class="mCustomScrollBox mCS-minimal mCSB_vertical mCSB_outside active"
+         style="max-height: none;" tabindex="0">
+      <div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
+        <div class="main-sidebar-loggedin">
+          <div class="main-img-user online">
+            <img alt="" class="mCS_img_loaded" src="./assets/img/faces/photo.jpg">
+          </div>
+          <div class="media-body pt-1"><h6>{{data.nom}} {{data.prenom}}</h6></div>
+        </div>
+        
+        <div class="main-sidebar-body active">
+          <ul class="side-menu ">
+
+            <li *ngxPermissionsOnly="['admin']" class="slide active">
+              <a class="side-menu__item active" routerLink="/home/dashboard">
+                <i class="side-menu__icon typcn typcn-device-desktop"></i>
+                <span class="side-menu__label">Tableau de bord</span>
+              </a>
+            </li>
+
+            <li *ngxPermissionsOnly="['admin']" ><h3>PARAMÉTRAGE</h3></li>
+            <li *ngxPermissionsOnly="['admin']"  class="slide">
+              <a class="side-menu__item" routerLink="/home/p1" routerLinkActive="/home/p1">
+                <i class="side-menu__icon typcn typcn-user-outline"></i>
+                <span class="side-menu__label">Compte agent</span>
+              </a>
+            </li>
+            <li  *ngxPermissionsOnly="['admin']" class="slide">
+              <a class="side-menu__item" routerLink="/home/p2" routerLinkActive="/home/p2">
+                <i class="side-menu__icon typcn typcn-th-list-outline"></i>
+                <span class="side-menu__label">Direction</span>
+              </a>
+            <li *ngxPermissionsOnly="['admin']" class="slide">
+              <a class="side-menu__item" routerLink="/home/p3" routerLinkActive="/home/p3">
+                <i class="side-menu__icon typcn typcn-cog-outline"></i>
+                <span class="side-menu__label">Année</span>
+              </a>
+            </li>
+            <li *ngxPermissionsOnly="['admin']" class="slide">
+              <a class="side-menu__item" routerLink="/home/p6" routerLinkActive="/home/p6">
+                <i class="side-menu__icon typcn typcn-th-menu-outline"></i>
+                <span class="side-menu__label">Indicateur</span>
+              </a>
+            </li>
+ 
+            <li><h3>CONTRAT</h3></li>
+            <li *ngxPermissionsOnly="['agent','chef de service','sous-directeur','directeur']" class="slide">
+              <a class="side-menu__item" routerLink="/home/p8" routerLinkActive="/home/p8">
+                <i class="side-menu__icon typcn typcn-document-text"></i>
+                <span class="side-menu__label">Mon Contrat</span>
+              </a>
+            </li>
+            <li *ngxPermissionsOnly="['chef de service','sous-directeur','directeur']" class="slide">
+              <a class="side-menu__item" routerLink="/home/p7" routerLink="/home/p7">
+                <i class="side-menu__icon typcn typcn-group-outline"></i>
+                <span class="side-menu__label">Collaborateurs</span>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal mCSB_scrollTools_vertical" style="display: block;">
+      <div class="mCSB_draggerContainer">
+        <div id="mCSB_1_dragger_vertical" class="mCSB_dragger"
+             style="position: absolute; min-height: 50px; display: block; height: 120px; max-height: 349px; top: 0px;">
+          <div class="mCSB_dragger_bar" style="line-height: 50px;"></div>
+        </div>
+        <div class="mCSB_draggerRail"></div>
+      </div>
+    </div>
+  </div>
+</aside> <!-- main-sidebar closed -->
+
+<!-- main-content opened -->
+
+
+<div class="main-content" style="min-height: 100vh;"> <!-- main-header opened -->
+  <div class="main-header nav nav-item sticky side-header sticky-pin" style="margin-bottom: -63px;">
+    <div class="container-fluid">
+      <div class="main-header-left ">
+
+        <div class="app-sidebar__toggle mobile-toggle" data-toggle="sidebar">
+          <a class="open-toggle" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                 class="eva eva-menu-outline header-icons">
+              <g data-name="Layer 2">
+                <g data-name="menu">
+                  <rect width="24" height="24" transform="rotate(180 12 12)" opacity="0"></rect>
+                  <rect x="3" y="11" width="18" height="2" rx=".95" ry=".95"></rect>
+                  <rect x="3" y="16" width="18" height="2" rx=".95" ry=".95"></rect>
+                  <rect x="3" y="6" width="18" height="2" rx=".95" ry=".95"></rect>
+                </g>
+              </g>
+            </svg>
+          </a>
+          <a class="close-toggle" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                 class="eva eva-close-outline header-icons">
+              <g data-name="Layer 2">
+                <g data-name="close">
+                  <rect width="24" height="24" transform="rotate(180 12 12)" opacity="0"></rect>
+                  <path d="M13.41 12l4.3-4.29a1 1 0 1 0-1.42-1.42L12 10.59l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.29-4.3 4.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l4.29-4.3 4.29 4.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
+                </g>
+              </g>
+            </svg>
+          </a>
+        </div>
+
+        <div class="responsive-logo">
+          <img src="./assets/img/brand/logo.png" class="logo-1" alt="logo">
+          <img src="./assets/img/brand/logo-white.png" class="dark-logo-1" alt="logo">
+          <img src="./assets/img/brand/favicon.png" class="logo-2" alt="logo">
+          <img src="./assets/img/brand/favicon-white.png" class="dark-logo-2" alt="logo">
+        </div>
+        <div class="main-header-center ml-3">
+          <input class="form-control" style="background-color: white; border-radius: 5px" placeholder="Recherche par mots clés ..." type="search">
+        </div>
+
+      </div>
+      <div class="main-header-right">
+        <div class="nav nav-item  navbar-nav-right ml-auto">
+
+          <!-- search -->
+          <form class="navbar-form nav-item my-auto d-lg-none" role="search">
+            <div class="input-group nav-item my-auto">
+              <input type="text" class="form-control" placeholder="Search">
+              <span class="input-group-btn">
+                <button type="reset" class="btn btn-default">
+                <i class="ti-close"></i>
+                </button>
+                <button type="submit" class="btn btn-default nav-link">
+                  <i class="fas fa-search"></i>
+                </button>
+              </span>
+            </div>
+          </form>
+          <!-- search -->
+
+          <!-- notification -->
+          <div class="dropdown nav-item main-header-notification">
+            <a class="new nav-link" href="#"><i class="typcn icon typcn-bell"></i><span class=" pulse"></span></a>
+            <div class="dropdown-menu">
+              <div class="menu-header-content bg-primary text-left d-flex">
+                <div class=""><h6 class="menu-header-title text-white mb-0">7 new Notifications</h6>
+                </div>
+                <div class="my-auto ml-auto"><span class="badge badge-pill badge-warning float-right">Mark All Read</span>
+                </div>
+              </div>
+              <div class="main-notification-list Notification-scroll ps"><a
+                class="d-flex p-3 border-bottom">
+                <div class="notifyimg bg-success-transparent"><i
+                  class="la la-shopping-basket text-success"></i></div>
+                <div class="ml-3"><h5 class="notification-label mb-1">New Order Received</h5>
+                  <div class="notification-subtext">1 hour ago</div>
+                </div>
+                <div class="ml-auto"><i class="las la-angle-right text-right text-muted"></i></div>
+              </a> <a class="d-flex p-3 border-bottom">
+                <div class="notifyimg bg-danger-transparent"><i
+                  class="la la-user-check text-danger"></i></div>
+                <div class="ml-3"><h5 class="notification-label mb-1">22 verified registrations</h5>
+                  <div class="notification-subtext">2 hour ago</div>
+                </div>
+                <div class="ml-auto"><i class="las la-angle-right text-right text-muted"></i></div>
+              </a> <a class="d-flex p-3 border-bottom">
+                <div class="notifyimg bg-primary-transparent"><i
+                  class="la la-check-circle text-primary"></i></div>
+                <div class="ml-3"><h5 class="notification-label mb-1">Project has been approved</h5>
+                  <div class="notification-subtext">4 hour ago</div>
+                </div>
+                <div class="ml-auto"><i class="las la-angle-right text-right text-muted"></i></div>
+              </a> <a class="d-flex p-3 border-bottom">
+                <div class="notifyimg bg-pink-transparent"><i class="la la-file-alt text-pink"></i>
+                </div>
+                <div class="ml-3"><h5 class="notification-label mb-1">New files available</h5>
+                  <div class="notification-subtext">10 hour ago</div>
+                </div>
+                <div class="ml-auto"><i class="las la-angle-right text-right text-muted"></i></div>
+              </a> <a class="d-flex p-3 border-bottom">
+                <div class="notifyimg bg-warning-transparent"><i
+                  class="la la-envelope-open text-warning"></i></div>
+                <div class="ml-3"><h5 class="notification-label mb-1">New review received</h5>
+                  <div class="notification-subtext">1 day ago</div>
+                </div>
+                <div class="ml-auto"><i class="las la-angle-right text-right text-muted"></i></div>
+              </a> <a class="d-flex p-3">
+                <div class="notifyimg bg-purple-transparent"><i class="la la-gem text-purple"></i></div>
+                <div class="ml-3"><h5 class="notification-label mb-1">Updates Available</h5>
+                  <div class="notification-subtext">2 days ago</div>
+                </div>
+                <div class="ml-auto"><i class="las la-angle-right text-right text-muted"></i></div>
+              </a>
+                <div class="ps__rail-x" style="left: 0px; top: 0px;">
+                  <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                </div>
+                <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                  <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+                </div>
+              </div>
+              <div class="dropdown-footer"><a href="">VIEW ALL</a></div>
+            </div>
+          </div>
+          <!-- notification -->
+
+          <!-- profile -->
+          <div class="dropdown main-profile-menu nav nav-item nav-link">
+            <a class="profile-user" href="javascript:void(0)">
+              <img alt="" src="./assets/img/faces/photo.jpg">
+            </a>
+            <div class="dropdown-menu">
+              <div class="main-header-profile header-img">
+                <div class="main-img-user">
+                  <img alt="" src="./assets/img/faces/photo.jpg">
+                </div>
+                <h6>{{data.nom}} {{data.prenom}}</h6><span>{{data.fonction}}</span>
+              </div>
+              <a class="dropdown-item" href="javascript:void(0)"><i class="fas fa-user"></i> Mon Profil</a>
+              <a class="dropdown-item" href="javascript:void(0)"><i class="fas fa-sliders-h"></i> Parametres comptes</a>
+              <a (click)="logOut()"  class="dropdown-item"  style="cursor: pointer">
+                <i class="fas fa-sign-out-alt" style="color: red"></i> Déconnexion
+              </a>
+            </div>
+          </div>
+          <!-- profile -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="jumps-prevent" style="padding-top: 63px;"></div>
+
+  <router-outlet></router-outlet>
+
+</div>
+
+<div class="sidebar sidebar-right sidebar-animate ps ps--active-y">
+  <div class="panel panel-primary card mb-0">
+    <div class="panel-body tabs-menu-body p-0 border-0">
+      <ul class="Date-time">
+        <li class="time"><h1 class="animated ">10:14</h1>
+          <p class="animated ">Thursday, March 12th 2020</p></li>
+      </ul>
+      <div class="tabs-menu "> <!-- Tabs -->
+        <ul class="nav panel-tabs">
+          <li><a href="#side1" class="active show" data-toggle="tab"><i class="fas fa-comments"></i>Setting</a></li>
+          <li><a href="#side2" data-toggle="tab"><i class="fas fa-bell"></i> Notifications</a></li>
+          <li><a href="#side3" data-toggle="tab"><i class="fas fa-user-friends"></i> Friends</a></li>
+        </ul>
+      </div>
+      <div class="tab-content">
+        <div class="tab-pane active" id="side1">
+          <div class="chat">
+            <div class="contacts_card">
+              <div class="input-group mb-0 p-3">
+                <input type="text" placeholder="Search..." class="form-control search">
+                <div class="input-group-prepend mr-0">
+                  <span class="input-group-text  search_btn  btn-primary">
+                    <i class="fa fa-search text-white"></i>
+                  </span>
+                </div>
+              </div>
+              <ul class="contacts mb-0">
+                <li class="active">
+                  <div class="d-flex bd-highlight w-100">
+                    <div class="img_cont">
+                      <img src="./assets/img/faces/12.jpg" class="rounded-circle user_img" alt="img">
+                      <span class="online_icon"></span>
+                    </div>
+                    <div class="user_info"><h5 class="mt-1 mb-1">Maryam Naz</h5>
+                      <small class="text-muted">is online</small>
+                    </div>
+                    <div class="float-right text-right ml-auto mt-auto mb-auto">
+                      <small>01-02-2019</small>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="d-flex bd-highlight w-100">
+                    <div class="img_cont">
+                      <img src="./assets/img/faces/2.jpg" class="rounded-circle user_img" alt="img">
+                      <span class=" online_icon"></span>
+                    </div>
+                    <div class="user_info"><h5 class="mt-1 mb-1">Sahar Darya</h5>
+                      <small class="text-muted">left 7 mins ago</small>
+                    </div>
+                    <div class="float-right text-right ml-auto mt-auto mb-auto">
+                      <small>01-02-2019</small>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="d-flex bd-highlight w-100">
+                    <div class="img_cont">
+                      <img src="./assets/img/faces/5.jpg" class="rounded-circle user_img" alt="img">
+                      <span class="online_icon"></span>
+                    </div>
+                    <div class="user_info">
+                      <h5 class="mt-1 mb-1">Maryam Naz</h5>
+                      <small class="text-muted">online</small>
+                    </div>
+                    <div class="float-right text-right ml-auto mt-auto mb-auto">
+                      <small>01-02-2019</small>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="d-flex bd-highlight w-100">
+                    <div class="img_cont">
+                      <img src="./assets/img/faces/7.jpg" class="rounded-circle user_img" alt="img">
+                      <span class="online_icon"></span>
+                    </div>
+                    <div class="user_info"><h5 class="mt-1 mb-1">Yolduz Rafi</h5>
+                      <small class="text-muted">online</small>
+                    </div>
+                    <div class="float-right text-right ml-auto mt-auto mb-auto">
+                      <small>02-02-2019</small>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="d-flex bd-highlight w-100">
+                    <div class="img_cont">
+                      <img src="./assets/img/faces/8.jpg" class="rounded-circle user_img" alt="img">
+                      <span class="online_icon"></span>
+                    </div>
+                    <div class="user_info"><h5 class="mt-1 mb-1">Nargis Hawa</h5>
+                      <small class="text-muted">30 mins ago</small>
+                    </div>
+                    <div class="float-right text-right ml-auto mt-auto mb-auto">
+                      <small>02-02-2019</small>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="d-flex bd-highlight w-100">
+                    <div class="img_cont">
+                      <img src="./assets/img/faces/3.jpg" class="rounded-circle user_img" alt="img">
+                      <span class="online_icon"></span>
+                    </div>
+                    <div class="user_info"><h5 class="mt-1 mb-1">Khadija Mehr</h5>
+                      <small class="text-muted">50 mins ago</small>
+                    </div>
+                    <div class="float-right text-right ml-auto mt-auto mb-auto">
+                      <small>03-02-2019</small>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="d-flex bd-highlight w-100">
+                    <div class="img_cont">
+                      <img src="./assets/img/faces/14.jpg" class="rounded-circle user_img" alt="img">
+                      <span class="online_icon"></span>
+                    </div>
+                    <div class="user_info"><h5 class="mt-1 mb-1">Petey Cruiser</h5>
+                      <small class="text-muted">1hr ago</small>
+                    </div>
+                    <div class="float-right text-right ml-auto mt-auto mb-auto">
+                      <small>03-02-2019</small>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="d-flex bd-highlight w-100">
+                    <div class="img_cont">
+                      <img src="./assets/img/faces/11.jpg" class="rounded-circle user_img" alt="img">
+                    </div>
+                    <div class="user_info"><h5 class="mt-1 mb-1">Khadija Mehr</h5>
+                      <small class="text-muted">2hr ago</small>
+                    </div>
+                    <div class="float-right text-right ml-auto mt-auto mb-auto">
+                      <small>03-02-2019</small>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="side2">
+          <div class="list-group list-group-flush ">
+            <div class="list-group-item d-flex  align-items-center">
+              <div class="mr-3">
+                <span class="avatar avatar-md brround cover-image" data-image-src="./assets/img/faces/12.jpg" style="background: url('assets/img/faces/12.jpg') center center;">
+                  <span class="avatar-status bg-success"></span>
+                </span>
+              </div>
+              <div><strong>Madeleine</strong> Hey! there I' am available....
+                <div class="small text-muted"> 3 hours ago</div>
+              </div>
+            </div>
+            <div class="list-group-item d-flex  align-items-center">
+              <div class="mr-3">
+                <span class="avatar avatar-md brround cover-image" data-image-src="./assets/img/faces/3.jpg" style="background: url('assets/img/faces/3.jpg') center center;"></span>
+              </div>
+              <div><strong>Anthony</strong> New product Launching...
+                <div class="small text-muted"> 5 hour ago</div>
+              </div>
+            </div>
+            <div class="list-group-item d-flex  align-items-center">
+              <div class="mr-3">
+                <span class="avatar avatar-md brround cover-image" data-image-src="./assets/img/faces/9.jpg" style="background: url('assets/img/faces/9.jpg') center center;"><span class="avatar-status bg-success"></span></span></div>
+              <div><strong>Olivia</strong> New Schedule Realease......
+                <div class="small text-muted"> 45 mintues ago</div>
+              </div>
+            </div>
+            <div class="list-group-item d-flex  align-items-center">
+              <div class="mr-3"><span class="avatar avatar-md brround cover-image"
+                                      data-image-src="./assets/img/faces/5.jpg"
+                                      style="background: url('assets/img/faces/5.jpg') center center;"><span
+                class="avatar-status bg-success"></span></span></div>
+              <div><strong>Madeleine</strong> Hey! there I' am available....
+                <div class="small text-muted"> 3 hours ago</div>
+              </div>
+            </div>
+            <div class="list-group-item d-flex  align-items-center">
+              <div class="mr-3"><span class="avatar avatar-md brround cover-image"
+                                      data-image-src="./assets/img/faces/11.jpg"
+                                      style="background: url('assets/img/faces/11.jpg') center center;"></span>
+              </div>
+              <div><strong>Anthony</strong> New product Launching...
+                <div class="small text-muted"> 5 hour ago</div>
+              </div>
+            </div>
+            <div class="list-group-item d-flex  align-items-center">
+              <div class="mr-3"><span class="avatar avatar-md brround cover-image"
+                                      data-image-src="./assets/img/faces/7.jpg"
+                                      style="background: url('assets/img/faces/7.jpg') center center;"><span
+                class="avatar-status bg-success"></span></span></div>
+              <div><strong>Olivia</strong> New Schedule Realease......
+                <div class="small text-muted"> 45 mintues ago</div>
+              </div>
+            </div>
+            <div class="list-group-item d-flex  align-items-center">
+              <div class="mr-3"><span class="avatar avatar-md brround cover-image"
+                                      data-image-src="./assets/img/faces/6.jpg"
+                                      style="background: url('assets/img/faces/6.jpg') center center;"><span
+                class="avatar-status bg-success"></span></span></div>
+              <div><strong>Olivia</strong> New Schedule Realease......
+                <div class="small text-muted"> 1 hour ago</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="side3">
+          <div class="list-group list-group-flush">
+            <div class="list-group-item d-flex align-items-center">
+              <div class="mr-2"><span class="contact-img brround avatar cover-image"
+                                      data-image-src="./assets/img/faces/1.jpg"
+                                      style="background: url('assets/img/faces/1.jpg') center center;"><span
+                class="avatar-status bg-teal"></span></span></div>
+              <div class="">
+                <div class="font-weight-semibold"> Darlena Torian</div>
+              </div>
+              <div class="ml-auto d-flex"><a class="btn btn-sm btn-light btn-icon mr-2" href="#"><i
+                class="fe fe-phone"></i></a> <a class="btn btn-sm btn-light btn-icon" href="#"><i
+                class="fe fe-message-square"></i></a></div>
+            </div>
+            <div class="list-group-item d-flex align-items-center">
+              <div class="mr-2"><span class="contact-img brround avatar cover-image"
+                                      data-image-src="./assets/img/faces/2.jpg"
+                                      style="background: url('assets/img/faces/2.jpg') center center;"></span>
+              </div>
+              <div class="">
+                <div class="font-weight-semibold"> Richie Verrill</div>
+              </div>
+              <div class="ml-auto d-flex"><a class="btn btn-sm btn-light btn-icon mr-2" href="#"><i
+                class="fe fe-phone"></i></a> <a class="btn btn-sm btn-light btn-icon" href="#"><i
+                class="fe fe-message-square"></i></a></div>
+            </div>
+            <div class="list-group-item d-flex align-items-center">
+              <div class="mr-2"><span class="contact-img brround avatar cover-image"
+                                      data-image-src="./assets/img/faces/3.jpg"
+                                      style="background: url(&quot;../assets/img/faces/3.jpg&quot;) center center;"><span
+                class="avatar-status bg-teal"></span></span></div>
+              <div class="">
+                <div class="font-weight-semibold"> Cheree Morgan</div>
+              </div>
+              <div class="ml-auto d-flex"><a class="btn btn-sm btn-light btn-icon mr-2" href="#"><i
+                class="fe fe-phone"></i></a> <a class="btn btn-sm btn-light btn-icon" href="#"><i
+                class="fe fe-message-square"></i></a></div>
+            </div>
+            <div class="list-group-item d-flex align-items-center">
+              <div class="mr-2"><span class="contact-img brround avatar  cover-image"
+                                      data-image-src="./assets/img/faces/4.jpg"
+                                      style="background: url(&quot;../assets/img/faces/4.jpg&quot;) center center;"><span
+                class="avatar-status bg-teal"></span></span></div>
+              <div class="">
+                <div class="font-weight-semibold"> Katerine Coit</div>
+              </div>
+              <div class="ml-auto d-flex"><a class="btn btn-sm btn-light btn-icon mr-2" href="#"><i
+                class="fe fe-phone"></i></a> <a class="btn btn-sm btn-light btn-icon" href="#"><i
+                class="fe fe-message-square"></i></a></div>
+            </div>
+            <div class="list-group-item d-flex align-items-center">
+              <div class="mr-2"><span class="contact-img brround avatar cover-image"
+                                      data-image-src="./assets/img/faces/5.jpg"
+                                      style="background: url(&quot;../assets/img/faces/5.jpg&quot;) center center;"><span
+                class="avatar-status bg-teal"></span></span></div>
+              <div class="">
+                <div class="font-weight-semibold"> Hai Indelicato</div>
+              </div>
+              <div class="ml-auto d-flex"><a class="btn btn-sm btn-light btn-icon mr-2" href="#"><i
+                class="fe fe-phone"></i></a> <a class="btn btn-sm btn-light btn-icon" href="#"><i
+                class="fe fe-message-square"></i></a></div>
+            </div>
+            <div class="list-group-item d-flex align-items-center">
+              <div class="mr-2"><span class="contact-img brround avatar cover-image"
+                                      data-image-src="./assets/img/faces/6.jpg"
+                                      style="background: url(&quot;../assets/img/faces/6.jpg&quot;) center center;"></span>
+              </div>
+              <div class="">
+                <div class="font-weight-semibold"> Cecilia Kerfoot</div>
+              </div>
+              <div class="ml-auto d-flex"><a class="btn btn-sm btn-light btn-icon mr-2" href="#"><i
+                class="fe fe-phone"></i></a> <a class="btn btn-sm btn-light btn-icon" href="#"><i
+                class="fe fe-message-square"></i></a></div>
+            </div>
+            <div class="list-group-item d-flex align-items-center">
+              <div class="mr-2"><span class="contact-img brround avatar cover-image"
+                                      data-image-src="./assets/img/faces/7.jpg"
+                                      style="background: url(&quot;../assets/img/faces/7.jpg&quot;) center center;"><span
+                class="avatar-status bg-teal"></span></span></div>
+              <div class="">
+                <div class="font-weight-semibold"> Ronald Zirbel</div>
+              </div>
+              <div class="ml-auto d-flex"><a class="btn btn-sm btn-light btn-icon mr-2" href="#"><i
+                class="fe fe-phone"></i></a> <a class="btn btn-sm btn-light btn-icon" href="#"><i
+                class="fe fe-message-square"></i></a></div>
+            </div>
+            <div class="list-group-item d-flex align-items-center">
+              <div class="mr-2"><span class="contact-img brround avatar cover-image"
+                                      data-image-src="./assets/img/faces/8.jpg"
+                                      style="background: url(&quot;../assets/img/faces/8.jpg&quot;) center center;"><span
+                class="avatar-status bg-teal"></span></span></div>
+              <div class="">
+                <div class="font-weight-semibold"> Darren Niemann</div>
+              </div>
+              <div class="ml-auto d-flex"><a class="btn btn-sm btn-light btn-icon mr-2" href="#"><i
+                class="fe fe-phone"></i></a> <a class="btn btn-sm btn-light btn-icon" href="#"><i
+                class="fe fe-message-square"></i></a></div>
+            </div>
+            <div class="list-group-item d-flex align-items-center">
+              <div class="mr-2"><span class="contact-img brround avatar cover-image"
+                                      data-image-src="./assets/img/faces/9.jpg"
+                                      style="background: url(&quot;../assets/img/faces/9.jpg&quot;) center center;"><span
+                class="avatar-status bg-teal"></span></span></div>
+              <div class="">
+                <div class="font-weight-semibold"> Sibyl Cogley</div>
+              </div>
+              <div class="ml-auto d-flex"><a class="btn btn-sm btn-light btn-icon mr-2" href="#"><i
+                class="fe fe-phone"></i></a> <a class="btn btn-sm btn-light btn-icon" href="#"><i
+                class="fe fe-message-square"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ps__rail-x" style="left: 0px; top: 0px;">
+    <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+  </div>
+  <div class="ps__rail-y" style="top: 0px; height: 688px; right: 0px;">
+    <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 560px;"></div>
+  </div>
+</div>

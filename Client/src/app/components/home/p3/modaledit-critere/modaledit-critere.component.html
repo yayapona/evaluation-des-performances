@@ -1,0 +1,20 @@
+<div class="modal-header" style="width: 498px; background-color: #ff8000;" >
+  <h4 class="modal-title">Modification</h4>
+</div>
+
+<ngx-spinner type="ball-scale-multiple">
+</ngx-spinner>
+
+<div class="input-group flex-nowrap">
+    <form class="row g-3" [formGroup]="editCritereForm">
+      <div class="col-4 mt-3"  style="width: 1005px; margin-bottom: 8px;">
+        <label for="inputL" class="visually-show">Critère</label>
+        <input type="text" class="form-control" id="inputL" placeholder="Entrer le critère" formControlName="libelle_critere">
+      </div>
+      <div class="col-2 ">
+        <button (click)="updateCritere()"  class="btn btn-primary mt-4 critere">Enregistrer</button>
+      </div>
+    </form>
+  </div>
+
+  

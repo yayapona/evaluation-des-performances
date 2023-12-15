@@ -1,0 +1,17 @@
+<form [formGroup]="editObjectifForm">
+    <div class="container">
+      <div class="row g-3 align-items-center">
+        <div class="col-4">
+          <label for="inputPassword6" class="col-form-label">Libellé objectif</label>
+          <input type="text" id="inputPassword6" class="form-control" aria-labelledby="passwordHelpInline" formControlName="libelle_objectifs">
+        </div>
+        <div class="col-3">
+          <label for="inputPassword6" class="col-form-label">Note Allouée</label>
+          <input type="number" id="inputPassword6" class="form-control" aria-labelledby="passwordHelpInline" formControlName="note_alloue">
+        </div>
+        <div class="col-auto">
+          <button (click)="updateObjectif()"  type="button" class="btn btn-primary mt-5">Enregistrer</button>
+        </div>
+      </div>
+    </div>
+  </form>

@@ -1,0 +1,29 @@
+
+
+<div>
+    <form [formGroup]="empForm">
+        <div class="modal-header">
+            <h4 class="modal-title">Création du contrat</h4>
+          </div>
+          <div  class="modal-body">
+            <div style="margin-bottom:15px ;" class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping">Année</span>
+                <input type="number" class="form-control"  aria-label="Username" placeholder="Entrez l'année du contrat" aria-describedby="addon-wrapping" formControlName="annee_contrat">
+            </div>
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping">Titulaire</span>
+                <ng-select formControlName="titulaire" style="width: 1000px;">
+                    <ng-option value="titulaire">Titutlaire</ng-option>
+                    <ng-option value="interimère" >Interimaire</ng-option>
+                </ng-select>
+            </div>
+               <div class="btnb">
+                <button (click)="closeModal()" style="margin-left: 180px;" type="button" class="btn btn-danger"><i class="side-menu__icon typcn typcn-cancel"></i>Annuler</button>
+                <button (click)="CreateContrat()" type="button" class="btn btn-success"><i class="side-menu__icon typcn typcn-tick"></i>Créer mon contrat</button>
+              </div>
+          </div>
+    </form>
+</div>
+
+
+  

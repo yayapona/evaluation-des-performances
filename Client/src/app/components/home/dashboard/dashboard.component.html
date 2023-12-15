@@ -1,0 +1,125 @@
+
+<!-- container opened -->
+<div class="container-fluid">
+  <div class="breadcrumb-header justify-content-between">
+    <div><h4 class="content-title mb-2">Tableau de bord</h4>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Tableau de bord</a></li>
+        </ol>
+      </nav>
+    </div>
+  </div> <!-- row opened -->
+
+  <ngx-spinner type="ball-scale-multiple">
+  </ngx-spinner>
+  
+  <div class="row row-sm">
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+      <div class="card"  style="height: 140px;">
+        <div class="card-body iconfont text-left">
+          <div class="d-flex justify-content-between"><h4 class="card-title mb-3">Nombre Total de direction</h4> <i
+            class="mdi mdi-dots-horizontal text-gray"></i></div>
+          <div class="d-flex mb-0">
+            <div class=""><h4 class="mb-1 font-weight-bold">{{data1}}
+            </h4>
+              <p class="mb-2 tx-12 text-muted"></p></div>
+            <div class="card-chart bg-primary-transparent brround ml-auto mt-0"><i
+              class="typcn typcn-group-outline text-primary tx-24"></i></div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+      <div class="card"  style="height: 140px;">
+        <div class="card-body iconfont text-left">
+          <div class="d-flex justify-content-between"><h4 class="card-title mb-3">Nombre Total de sous-direction</h4> <i
+            class="mdi mdi-dots-horizontal text-gray"></i></div>
+          <div class="d-flex mb-0">
+            <div class=""><h4 class="mb-1 font-weight-bold">{{data2}}
+            </h4>
+              <p class="mb-2 tx-12 text-muted"></p></div>
+            <div class="card-chart bg-pink-transparent brround ml-auto mt-0"><i
+              class="typcn typcn-chart-line-outline text-pink tx-24"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+      <div class="card" style="height: 140px;">
+        <div class="card-body iconfont text-left">
+          <div class="d-flex justify-content-between"><h4 class="card-title mb-3">Nombre Total de service</h4> <i
+            class="mdi mdi-dots-horizontal text-gray"></i></div>
+          <div class="d-flex mb-0">
+            <div class=""><h4 class="mb-1   font-weight-bold">{{data3}}</h4>
+          </div>
+            <div class="card-chart bg-teal-transparent brround ml-auto mt-0"><i
+              class="typcn typcn-chart-bar-outline text-teal tx-20"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+      <div class="card" style="height: 140px;">
+        <div class="card-body iconfont text-left">
+          <div class="d-flex justify-content-between"><h4 class="card-title mb-3">Nombre Total de contrat</h4> <i
+            class="mdi mdi-dots-horizontal text-gray"></i></div>
+          <div class="d-flex mb-0">
+            <div class=""><h4 class="mb-1 font-weight-bold">{{data4}}
+            </h4>
+              </div>
+            <div class="card-chart bg-purple-transparent brround ml-auto mt-0"><i
+              class="typcn typcn-time  text-purple tx-24"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- row closed --> <!-- row opened -->
+  
+        
+     
+    
+    <div class="col-lg-12 col-xl-7" >
+      <div class="card " style="width: 1230px; margin-left: -11px;">
+        <div class="card-header pb-0 pt-3">
+          <div class="d-flex justify-content-between"><h4 class="card-title pt-1">Liste des contrats</h4> <i class="mdi mdi-dots-horizontal text-gray"></i></div>
+        <div class="card-body" >
+          <div class="table-responsive" >
+            <table class="table mb-0 mg-b-0 text-md-nowrap table-bordered text-sm-nowrap text-lg-nowrap text-xl-nowrap">
+              <thead>
+              <tr>
+                <th class="wd-45p pd-t-6" style="width:75px">ANNÉE</th>
+                <th class="pd-t-6">DIRECTION & FONCTION</th>
+                <th class="pd-t-6">EVALUATEUR</th>
+                <th class="pd-t-6">STATUT</th>
+                <th class="pd-t-6" style="width: 160px;">ACTION</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of data5">
+                <td><strong>{{item.annee_contrat | date:'yyyy'}}</strong></td>
+                <td>
+                    {{item.agent.direction.libele_long}} <br>
+                    {{item.agent_fonction}}
+                </td>
+                <td>{{item.nom_evaluateur}} {{item.prenom_evaluateur}}</td>
+                <td>{{item.statut_contrat}}</td>
+                <td>
+                  <i (click)="deleteContrat(item.id)" style="font-size: 25px; color: #ff8000; margin-left: 25px;" class="side-menu__icon typcn typcn-edit"></i>
+                  <i  style="font-size: 25px; color: red; margin-left: 25px;" class="side-menu__icon typcn typcn-trash"
+                   mwlConfirmationPopover 
+                   [popoverTitle]="popoverTitle"
+                   [popoverMessage]="popoverMessage" 
+                   placement="left" 
+                   (confirm)="deleteContrat(item.id)" 
+                   (cancel)="cancelClicked = true"
+                  
+                  ></i>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div><!-- table-responsive --> </div>
+      </div><!-- card --> </div>
+  </div> <!-- row closed -->  <!-- Container closed -->

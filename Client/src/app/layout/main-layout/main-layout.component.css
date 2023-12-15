@@ -1,0 +1,9 @@
+.head {
+    display: flex;
+}
+.head img {
+    margin-right: 9px;
+}
+.head span{
+   margin-top: 4px;
+}

@@ -1,0 +1,14 @@
+<div class="modal-header" style="width: 498px; background-color: #ff8000;" >
+  <h4 class="modal-title">Modification</h4>
+</div>
+<div class="input-group flex-nowrap">    
+    <form class="row g-3" [formGroup]="editIndicateurForm" >
+      <div class="col-5" style="width: 905px; margin-bottom: 10px;">
+        <label for="inputCode" class="visually-show">Indicateur</label>
+        <input type="text" class="form-control" id="inputCode" placeholder="Entrer l'indicateur"  formControlName="libelle_indicateur">
+      </div>
+      <div class="col-2 ">
+        <button (click)="updateIndicateur()" type="submit" class="btn btn-primary mt-4 domaine">Enregistrer</button>
+      </div>
+    </form>
+</div>

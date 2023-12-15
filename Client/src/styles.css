@@ -1,0 +1,198 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+/* You can add global styles to this file, and also import other style files */
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import 'ngx-toastr/toastr';
+.breadcrumb-item a{
+  color: rgb(40 92 247) !important;
+}
+
+
+.outerDivFull {
+  margin: 0px;
+}
+
+.switchToggle input[type=checkbox] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+.switchToggle label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 130px;
+  max-width: 200px;
+  height: 31px;
+  background: #D50000;
+  display: block;
+  border-radius: 50px;
+  position: relative;
+}
+
+.switchToggle label:after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 2px;
+  width: 25px;
+  height: 25px;
+  background: #fff;
+  border-radius: 54px;
+  transition: 1.3s;
+}
+
+.switchToggle input:checked + label, .switchToggle input:checked + input + label {
+  background: #0a7ffb;
+  /*background: #3e98d3;*/
+}
+
+.switchToggle input + label:before, .switchToggle input + input + label:before {
+  content: 'NEGATIVE';
+  position: absolute;
+  top: 6px;
+  left: 40px;
+  width: 80px;
+  height: 22px;
+  border-radius: 90px;
+  transition: 0.3s;
+  text-indent: 0;
+  color: #fff;
+}
+
+.switchToggle input:checked + label:before, .switchToggle input:checked + input + label:before {
+  content: 'POSITIVE';
+  position: absolute;
+  top: 6px;
+  left: 10px;
+  width: 80px;
+  height: 22px;
+  border-radius: 90px;
+  transition: 0.3s;
+  text-indent: 0;
+  color: #fff;
+}
+
+.switchToggle input:checked + label:after, .switchToggle input:checked + input + label:after {
+  left: calc(100% - 2px);
+  transform: translateX(-100%);
+}
+
+.switchToggle label:active:after {
+  width: 60px;
+}
+
+.toggle-switchArea {
+  margin: 10px 0 10px 0;
+}
+
+
+
+fieldset
+{
+  border: 1px solid #ddd !important;
+  margin: 0;
+  xmin-width: 0;
+  padding: 10px;
+  position: relative;
+  border-radius:5px;
+  background-color:#fafafa;
+  padding-left:10px!important;
+}
+
+legend
+{
+  font-size:14px;
+  font-weight:bold;
+  margin-bottom: 0px;
+  width: 40%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px 5px 5px 10px;
+  background-color: #ffffff;
+}
+
+@media (min-width: 992px){
+  .modal-lg, .modal-xl {
+    min-width: 73% !important;
+    max-width: 77% !important;
+  }
+}
+
+.my-pagination .ngx-pagination .current {
+  background: #285cf7;
+  border-radius: 0px;
+  font-weight: bold;
+}
+
+.toastSuccess{
+  background-color: #a5d6a7;
+  color: green;
+}
+
+body{
+  font-family: "Poppins" !important;;
+}
+
+.side-menu li h3 {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: #0d9547 !important;
+}
+
+.addObjBtn{
+  display: inline-block;
+  font-weight: 600;
+  color: #0a7ffb;
+  padding-top: 45px;
+  font-style: italic;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.removeObjBtn{
+  display: inline-block;
+  font-weight: 600;
+  color: red;
+  padding-top: 45px;
+  font-style: italic;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+label{
+  font-size: 1.2em;
+}
+
+.formCss{
+  border-radius: 5px;
+  border: 1px solid #e2e8f5 !important
+}
+
+.add__button {
+  width: 40px;
+  height: 40px;
+  color: #888282 !important;
+  cursor: pointer;
+  margin-bottom: 0px !important;
+  padding: 9px !important;
+  border-radius: 50%;
+
+  box-shadow: 0 6px 10px 0 #0000001a,0 1px 18px 0 #0000001a,0 3px 5px -1px #0003 !important;
+  text-decoration: none;
+  transition: transform 0.3s;
+}
+
+.btn {
+  padding: 7px 10px;
+}
+
+
+label {
+  margin-bottom: 0.2rem !important;
+}
+
+
+
